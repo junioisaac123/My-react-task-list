@@ -1,18 +1,20 @@
 import React from "react";
 import Header from "./Header";
 import TaskList from "./TaskList";
-
-const tasks = [
-  { id: 1, name: "Task 1", completed: true },
-  { id: 2, name: "Task 2", completed: true },
-  { id: 3, name: "Task 3", completed: false },
-];
+import useTaskManager from "./useTaskManager";
 
 function App() {
+  const { tasks, createTask, deleteTask, updateTask } = useTaskManager();
+
   return (
     <div>
       <Header />
-      <TaskList tasks={tasks} />
+      <TaskList
+        tasks={tasks}
+        createTask={createTask}
+        deleteTask={deleteTask}
+        updateTask={updateTask}
+      />
     </div>
   );
 }
